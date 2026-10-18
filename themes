@@ -1,0 +1,276 @@
+/**
+ * @name Vantacord Nebula
+ * @author Vantacord
+ * @version 1.0.0
+ * @description Vantacord's purple space theme: the installer's deep purple with a starfield, drifting nebula glows and floating stardust, a sleek font for servers and channels, and purple lettering with pink and blue accents. Dark only, loads nothing from the internet.
+ * @source https://vantacord.pages.dev
+ */
+
+.theme-dark, .theme-darker, .theme-midnight {
+    /* backgrounds, darkest to lightest (the installer's #0a0716 -> #17122b -> #221a3d) */
+    --background-base-lowest: rgba(10, 7, 22, 0.50);
+    --background-base-lower: rgba(13, 10, 26, 0.38);
+    --background-base-low: rgba(16, 12, 32, 0.30);
+    --background-surface-high: #17122b;
+    --background-surface-higher: #1d1636;
+    --background-surface-highest: #221a3d;
+    --background-secondary-alt: rgba(13, 10, 26, 0.38);
+    --bg-surface-raised: #17122b;
+    --chat-background: rgba(16, 12, 32, 0.30);
+    --chat-background-default: rgba(16, 12, 32, 0.30);
+    --channel-background-default: rgba(13, 10, 26, 0.38);
+    --channeltextarea-background: #1d1636;
+    --card-background-default: #17122b;
+    --input-background-default: #0a0716;
+    --app-frame-background: rgba(10, 7, 22, 0.50);
+
+    /* hover / selected / pressed */
+    --background-mod-subtle: rgba(180, 139, 255, 0.07);
+    --background-mod-muted: rgba(180, 139, 255, 0.10);
+    --background-mod-normal: rgba(180, 139, 255, 0.15);
+    --background-mod-strong: rgba(180, 139, 255, 0.22);
+    --interactive-background-hover: rgba(180, 139, 255, 0.12);
+    --interactive-background-active: rgba(180, 139, 255, 0.20);
+    --interactive-background-selected: rgba(180, 139, 255, 0.18);
+
+    /* text: #ece6ff, muted #a79cd0, dim #8f84b5 */
+    --text-strong: #f1e8ff;
+    --text-default: #d4bfff;
+    --text-muted: #a487ee;
+    --text-subtle: #8a6fd0;
+    --chat-text-muted: #a487ee;
+    --channels-default: #c2a6ff;
+    --channel-icon: #8fa6ff;
+    --channel-text-area-placeholder: #8a6fd0;
+    --input-placeholder-text-default: #8a6fd0;
+    --interactive-text-default: #b497f5;
+    --interactive-text-hover: #f3d6ff;
+    --interactive-text-active: #ffffff;
+    --interactive-icon-default: #b497f5;
+    --interactive-icon-hover: #f3d6ff;
+    --interactive-icon-active: #ffffff;
+    --text-link: #d9a8ff;
+
+    /* the Vantacord purple */
+    --background-brand: #7b55f2;
+    --background-accent: #7b55f2;
+    --text-brand: #c79bff;
+    --background-feedback-notification: #e24bd0;
+    --badge-notification-background: #e24bd0;
+    --status-speaking: #7dffb3;
+    --background-mod-subtle: rgba(160, 120, 255, 0.09);
+    --interactive-accent-background-default: #7b55f2;
+    --badge-primary-background: #7b55f2;
+    --border-focus: #b48bff;
+    --checkbox-background-active: #7b55f2;
+
+    /* borders */
+    --border-subtle: rgba(180, 139, 255, 0.12);
+    --border-muted: rgba(180, 139, 255, 0.08);
+    --border-normal: rgba(180, 139, 255, 0.22);
+    --border-strong: rgba(180, 139, 255, 0.40);
+    --chat-border: rgba(180, 139, 255, 0.12);
+    --input-border-default: rgba(180, 139, 255, 0.25);
+    --input-border-hover: rgba(180, 139, 255, 0.45);
+    --card-border-default: rgba(180, 139, 255, 0.12);
+
+    /* scrollbars */
+    --scrollbar-thin-thumb: #3a2d66;
+    --scrollbar-thin-track: transparent;
+    --scrollbar-auto-thumb: #3a2d66;
+    --scrollbar-auto-track: #100c20;
+    --scrollbar-auto-scrollbar-color-thumb: #3a2d66;
+    --scrollbar-auto-scrollbar-color-track: #100c20;
+}
+
+/* The moving background from the installer: three soft purple glows drifting slowly behind everything, plus the floating dust below.
+   Still gradients that only slide (no blur, no pictures, nothing downloaded), so it stays light on speed. */
+/* a still starfield under everything (on the page itself, so it costs nothing to draw) */
+html { background: #0a0716; background-image:
+        radial-gradient(circle at 62.3% 74.2%, rgba(255,210,255,0.35) 0, rgba(255,210,255,0.35) 1.6px, transparent 2.4px),
+        radial-gradient(circle at 77.6% 24.9%, rgba(236,226,255,0.5) 0, rgba(236,226,255,0.5) 0.6px, transparent 1.4px),
+        radial-gradient(circle at 37.2% 86.8%, rgba(200,170,255,0.35) 0, rgba(200,170,255,0.35) 1.2px, transparent 2.0px),
+        radial-gradient(circle at 1.3% 21.7%, rgba(255,210,255,0.5) 0, rgba(255,210,255,0.5) 1px, transparent 1.8px),
+        radial-gradient(circle at 16.0% 79.7%, rgba(200,170,255,0.9) 0, rgba(200,170,255,0.9) 0.8px, transparent 1.6px),
+        radial-gradient(circle at 13.2% 97.2%, rgba(200,170,255,0.5) 0, rgba(200,170,255,0.5) 0.6px, transparent 1.4px),
+        radial-gradient(circle at 96.0% 16.6%, rgba(170,190,255,0.7) 0, rgba(170,190,255,0.7) 0.8px, transparent 1.6px),
+        radial-gradient(circle at 96.1% 53.9%, rgba(200,170,255,0.5) 0, rgba(200,170,255,0.5) 0.8px, transparent 1.6px),
+        radial-gradient(circle at 96.7% 89.4%, rgba(170,190,255,0.35) 0, rgba(170,190,255,0.35) 1px, transparent 1.8px),
+        radial-gradient(circle at 41.5% 93.6%, rgba(170,190,255,0.35) 0, rgba(170,190,255,0.35) 1px, transparent 1.8px),
+        radial-gradient(circle at 30.1% 60.3%, rgba(236,226,255,0.7) 0, rgba(236,226,255,0.7) 0.6px, transparent 1.4px),
+        radial-gradient(circle at 31.0% 81.9%, rgba(200,170,255,0.7) 0, rgba(200,170,255,0.7) 1.2px, transparent 2.0px),
+        radial-gradient(circle at 48.1% 70.5%, rgba(236,226,255,0.7) 0, rgba(236,226,255,0.7) 0.6px, transparent 1.4px),
+        radial-gradient(circle at 94.9% 35.8%, rgba(255,210,255,0.35) 0, rgba(255,210,255,0.35) 1.2px, transparent 2.0px),
+        radial-gradient(circle at 36.6% 57.9%, rgba(236,226,255,0.9) 0, rgba(236,226,255,0.9) 0.6px, transparent 1.4px),
+        radial-gradient(circle at 70.8% 62.4%, rgba(200,170,255,0.35) 0, rgba(200,170,255,0.35) 0.8px, transparent 1.6px),
+        radial-gradient(circle at 93.0% 94.2%, rgba(170,190,255,0.7) 0, rgba(170,190,255,0.7) 1px, transparent 1.8px),
+        radial-gradient(circle at 77.6% 10.8%, rgba(236,226,255,0.7) 0, rgba(236,226,255,0.7) 1px, transparent 1.8px),
+        radial-gradient(circle at 43.3% 97.8%, rgba(170,190,255,0.7) 0, rgba(170,190,255,0.7) 0.8px, transparent 1.6px),
+        radial-gradient(circle at 91.8% 34.0%, rgba(170,190,255,0.35) 0, rgba(170,190,255,0.35) 1.6px, transparent 2.4px),
+        radial-gradient(circle at 68.6% 30.6%, rgba(170,190,255,0.5) 0, rgba(170,190,255,0.5) 0.6px, transparent 1.4px),
+        radial-gradient(circle at 99.7% 16.2%, rgba(255,210,255,0.35) 0, rgba(255,210,255,0.35) 0.6px, transparent 1.4px),
+        radial-gradient(circle at 3.2% 74.1%, rgba(255,210,255,0.7) 0, rgba(255,210,255,0.7) 1px, transparent 1.8px),
+        radial-gradient(circle at 65.1% 14.6%, rgba(170,190,255,0.9) 0, rgba(170,190,255,0.9) 0.6px, transparent 1.4px),
+        radial-gradient(circle at 83.8% 13.1%, rgba(255,210,255,0.5) 0, rgba(255,210,255,0.5) 1.6px, transparent 2.4px),
+        radial-gradient(circle at 10.7% 43.5%, rgba(255,210,255,0.35) 0, rgba(255,210,255,0.35) 0.8px, transparent 1.6px),
+        radial-gradient(circle at 29.5% 45.3%, rgba(255,210,255,0.5) 0, rgba(255,210,255,0.5) 1.6px, transparent 2.4px),
+        radial-gradient(circle at 96.0% 68.9%, rgba(170,190,255,0.9) 0, rgba(170,190,255,0.9) 1px, transparent 1.8px),
+        radial-gradient(circle at 29.1% 40.4%, rgba(255,210,255,0.35) 0, rgba(255,210,255,0.35) 0.8px, transparent 1.6px),
+        radial-gradient(circle at 82.2% 53.2%, rgba(170,190,255,0.9) 0, rgba(170,190,255,0.9) 0.8px, transparent 1.6px),
+        radial-gradient(circle at 18.0% 49.2%, rgba(236,226,255,0.7) 0, rgba(236,226,255,0.7) 1.6px, transparent 2.4px),
+        radial-gradient(circle at 78.6% 77.5%, rgba(170,190,255,0.35) 0, rgba(170,190,255,0.35) 1.6px, transparent 2.4px),
+        radial-gradient(circle at 36.3% 70.4%, rgba(170,190,255,0.9) 0, rgba(170,190,255,0.9) 1px, transparent 1.8px),
+        radial-gradient(circle at 77.0% 69.1%, rgba(200,170,255,0.7) 0, rgba(200,170,255,0.7) 1px, transparent 1.8px),
+        radial-gradient(circle at 58.1% 1.2%, rgba(170,190,255,0.7) 0, rgba(170,190,255,0.7) 1.6px, transparent 2.4px),
+        radial-gradient(circle at 67.2% 46.3%, rgba(170,190,255,0.7) 0, rgba(170,190,255,0.7) 1.6px, transparent 2.4px),
+        radial-gradient(circle at 27.4% 34.6%, rgba(200,170,255,0.7) 0, rgba(200,170,255,0.7) 1.2px, transparent 2.0px),
+        radial-gradient(circle at 87.0% 68.8%, rgba(200,170,255,0.7) 0, rgba(200,170,255,0.7) 1px, transparent 1.8px),
+        radial-gradient(circle at 52.9% 16.6%, rgba(170,190,255,0.9) 0, rgba(170,190,255,0.9) 1px, transparent 1.8px),
+        radial-gradient(circle at 69.1% 72.0%, rgba(255,210,255,0.5) 0, rgba(255,210,255,0.5) 1.2px, transparent 2.0px),
+        radial-gradient(circle at 30.3% 55.3%, rgba(200,170,255,0.35) 0, rgba(200,170,255,0.35) 1px, transparent 1.8px),
+        radial-gradient(circle at 16.0% 44.1%, rgba(200,170,255,0.5) 0, rgba(200,170,255,0.5) 0.8px, transparent 1.6px),
+        radial-gradient(circle at 63.1% 4.2%, rgba(200,170,255,0.5) 0, rgba(200,170,255,0.5) 1.2px, transparent 2.0px),
+        radial-gradient(circle at 5.4% 13.4%, rgba(255,210,255,0.5) 0, rgba(255,210,255,0.5) 1px, transparent 1.8px),
+        radial-gradient(circle at 19.3% 3.6%, rgba(255,210,255,0.7) 0, rgba(255,210,255,0.7) 1.2px, transparent 2.0px),
+        radial-gradient(circle at 66.3% 7.2%, rgba(170,190,255,0.5) 0, rgba(170,190,255,0.5) 0.8px, transparent 1.6px),
+        radial-gradient(circle at 0.1% 40.5%, rgba(236,226,255,0.9) 0, rgba(236,226,255,0.9) 1px, transparent 1.8px),
+        radial-gradient(circle at 68.9% 54.7%, rgba(236,226,255,0.7) 0, rgba(236,226,255,0.7) 0.6px, transparent 1.4px),
+        radial-gradient(circle at 29.5% 51.3%, rgba(170,190,255,0.7) 0, rgba(170,190,255,0.7) 1.6px, transparent 2.4px),
+        radial-gradient(circle at 81.9% 41.9%, rgba(255,210,255,0.7) 0, rgba(255,210,255,0.7) 1.6px, transparent 2.4px),
+        radial-gradient(circle at 14.2% 59.6%, rgba(200,170,255,0.9) 0, rgba(200,170,255,0.9) 1.6px, transparent 2.4px),
+        radial-gradient(circle at 96.8% 60.9%, rgba(255,210,255,0.35) 0, rgba(255,210,255,0.35) 1px, transparent 1.8px),
+        radial-gradient(circle at 10.8% 56.6%, rgba(170,190,255,0.5) 0, rgba(170,190,255,0.5) 1.6px, transparent 2.4px),
+        radial-gradient(circle at 62.9% 89.1%, rgba(255,210,255,0.9) 0, rgba(255,210,255,0.9) 1.2px, transparent 2.0px),
+        radial-gradient(circle at 97.7% 49.3%, rgba(255,210,255,0.9) 0, rgba(255,210,255,0.9) 1.2px, transparent 2.0px),
+        radial-gradient(circle at 96.1% 91.4%, rgba(170,190,255,0.7) 0, rgba(170,190,255,0.7) 1.6px, transparent 2.4px),
+        radial-gradient(circle at 49.6% 41.5%, rgba(255,210,255,0.7) 0, rgba(255,210,255,0.7) 1px, transparent 1.8px),
+        radial-gradient(circle at 93.0% 14.3%, rgba(255,210,255,0.35) 0, rgba(255,210,255,0.35) 0.6px, transparent 1.4px),
+        radial-gradient(circle at 24.6% 4.0%, rgba(236,226,255,0.9) 0, rgba(236,226,255,0.9) 0.8px, transparent 1.6px),
+        radial-gradient(circle at 48.0% 56.0%, rgba(236,226,255,0.9) 0, rgba(236,226,255,0.9) 0.8px, transparent 1.6px),
+        radial-gradient(circle at 24.6% 26.8%, rgba(170,190,255,0.7) 0, rgba(170,190,255,0.7) 0.8px, transparent 1.6px),
+        radial-gradient(circle at 49.2% 99.2%, rgba(236,226,255,0.35) 0, rgba(236,226,255,0.35) 1.6px, transparent 2.4px),
+        radial-gradient(circle at 76.0% 30.1%, rgba(170,190,255,0.7) 0, rgba(170,190,255,0.7) 1.6px, transparent 2.4px),
+        radial-gradient(circle at 73.1% 2.7%, rgba(200,170,255,0.7) 0, rgba(200,170,255,0.7) 1px, transparent 1.8px),
+        radial-gradient(circle at 3.6% 25.2%, rgba(200,170,255,0.35) 0, rgba(200,170,255,0.35) 1.2px, transparent 2.0px),
+        radial-gradient(circle at 1.5% 77.8%, rgba(255,210,255,0.9) 0, rgba(255,210,255,0.9) 1.2px, transparent 2.0px),
+        radial-gradient(circle at 47.6% 68.2%, rgba(255,210,255,0.7) 0, rgba(255,210,255,0.7) 0.8px, transparent 1.6px),
+        radial-gradient(circle at 83.0% 6.6%, rgba(170,190,255,0.9) 0, rgba(170,190,255,0.9) 0.6px, transparent 1.4px),
+        radial-gradient(circle at 64.8% 47.2%, rgba(200,170,255,0.5) 0, rgba(200,170,255,0.5) 1px, transparent 1.8px),
+        radial-gradient(circle at 47.8% 54.9%, rgba(200,170,255,0.7) 0, rgba(200,170,255,0.7) 1.2px, transparent 2.0px);
+    background-size: 100% 100%; background-attachment: fixed; }
+body { background: transparent !important; }
+body::before, body::after, html::before {
+    content: ""; position: fixed; z-index: -1; pointer-events: none; will-change: transform;
+    width: 90vmax; height: 90vmax; border-radius: 50%;
+}
+body::before {
+    left: -35vmax; bottom: -40vmax;
+    background: radial-gradient(circle, rgba(110, 60, 230, 0.75), transparent 62%);
+    animation: vanta-drift-a 30s ease-in-out infinite alternate;
+}
+body::after {
+    right: -30vmax; bottom: -35vmax;
+    background: radial-gradient(circle, rgba(150, 70, 220, 0.62), transparent 62%);
+    animation: vanta-drift-b 38s ease-in-out infinite alternate;
+}
+html::before {
+    left: 5vw; top: -50vmax;
+    background: radial-gradient(circle, rgba(70, 90, 235, 0.50), transparent 62%);
+    animation: vanta-drift-c 46s ease-in-out infinite alternate;
+}
+/* The floating dust from the installer: little purple specks that twinkle and slowly rise. */
+html::after {
+    content: ""; position: fixed; left: 0; top: 0; width: 100vw; height: 200vh; z-index: -1; pointer-events: none; will-change: transform, opacity;
+    background-image:
+        radial-gradient(circle at 45.2% 56.0%, rgba(219,188,255,.85) 0, rgba(219,188,255,.85) 2.0px, rgba(219,188,255,.16) 2.6px, transparent 10.1px),
+        radial-gradient(circle at 50.8% 58.7%, rgba(222,190,255,.85) 0, rgba(222,190,255,.85) 0.9px, rgba(222,190,255,.16) 1.5px, transparent 4.7px),
+        radial-gradient(circle at 63.0% 79.3%, rgba(209,169,255,.85) 0, rgba(209,169,255,.85) 0.8px, rgba(209,169,255,.16) 1.4px, transparent 4.0px),
+        radial-gradient(circle at 9.1% 81.0%, rgba(192,198,255,.85) 0, rgba(192,198,255,.85) 1.7px, rgba(192,198,255,.16) 2.3px, transparent 8.4px),
+        radial-gradient(circle at 98.2% 96.5%, rgba(229,201,255,.85) 0, rgba(229,201,255,.85) 1.6px, rgba(229,201,255,.16) 2.2px, transparent 8.1px),
+        radial-gradient(circle at 15.7% 1.5%, rgba(193,162,255,.85) 0, rgba(193,162,255,.85) 1.4px, rgba(193,162,255,.16) 2.0px, transparent 7.2px),
+        radial-gradient(circle at 19.0% 24.2%, rgba(219,180,255,.85) 0, rgba(219,180,255,.85) 0.7px, rgba(219,180,255,.16) 1.3px, transparent 3.6px),
+        radial-gradient(circle at 44.1% 84.2%, rgba(230,178,255,.85) 0, rgba(230,178,255,.85) 1.4px, rgba(230,178,255,.16) 2.0px, transparent 7.1px),
+        radial-gradient(circle at 50.0% 66.2%, rgba(207,186,255,.85) 0, rgba(207,186,255,.85) 1.3px, rgba(207,186,255,.16) 1.9px, transparent 6.7px),
+        radial-gradient(circle at 99.8% 99.6%, rgba(235,176,255,.85) 0, rgba(235,176,255,.85) 1.9px, rgba(235,176,255,.16) 2.5px, transparent 9.5px),
+        radial-gradient(circle at 31.5% 23.0%, rgba(194,196,255,.85) 0, rgba(194,196,255,.85) 1.1px, rgba(194,196,255,.16) 1.7px, transparent 5.5px),
+        radial-gradient(circle at 76.6% 40.0%, rgba(214,164,255,.85) 0, rgba(214,164,255,.85) 1.9px, rgba(214,164,255,.16) 2.5px, transparent 9.5px),
+        radial-gradient(circle at 95.8% 84.7%, rgba(203,219,255,.85) 0, rgba(203,219,255,.85) 0.7px, rgba(203,219,255,.16) 1.3px, transparent 3.4px),
+        radial-gradient(circle at 91.0% 47.0%, rgba(215,186,255,.85) 0, rgba(215,186,255,.85) 2.1px, rgba(215,186,255,.16) 2.7px, transparent 10.5px),
+        radial-gradient(circle at 7.3% 62.9%, rgba(207,181,255,.85) 0, rgba(207,181,255,.85) 1.8px, rgba(207,181,255,.16) 2.4px, transparent 9.0px),
+        radial-gradient(circle at 8.7% 33.3%, rgba(238,219,255,.85) 0, rgba(238,219,255,.85) 2.0px, rgba(238,219,255,.16) 2.6px, transparent 10.4px),
+        radial-gradient(circle at 11.8% 24.6%, rgba(193,189,255,.85) 0, rgba(193,189,255,.85) 0.8px, rgba(193,189,255,.16) 1.4px, transparent 4.1px),
+        radial-gradient(circle at 79.7% 17.8%, rgba(218,192,255,.85) 0, rgba(218,192,255,.85) 1.5px, rgba(218,192,255,.16) 2.1px, transparent 7.4px),
+        radial-gradient(circle at 19.1% 73.2%, rgba(231,184,255,.85) 0, rgba(231,184,255,.85) 0.8px, rgba(231,184,255,.16) 1.4px, transparent 4.3px),
+        radial-gradient(circle at 11.7% 42.1%, rgba(207,215,255,.85) 0, rgba(207,215,255,.85) 1.0px, rgba(207,215,255,.16) 1.6px, transparent 4.9px),
+        radial-gradient(circle at 97.1% 80.3%, rgba(246,161,255,.85) 0, rgba(246,161,255,.85) 1.1px, rgba(246,161,255,.16) 1.7px, transparent 5.6px),
+        radial-gradient(circle at 21.1% 39.4%, rgba(231,196,255,.85) 0, rgba(231,196,255,.85) 1.9px, rgba(231,196,255,.16) 2.5px, transparent 9.6px),
+        radial-gradient(circle at 10.0% 98.9%, rgba(206,160,255,.85) 0, rgba(206,160,255,.85) 1.0px, rgba(206,160,255,.16) 1.6px, transparent 4.9px),
+        radial-gradient(circle at 77.3% 32.9%, rgba(194,164,255,.85) 0, rgba(194,164,255,.85) 1.1px, rgba(194,164,255,.16) 1.7px, transparent 5.5px),
+        radial-gradient(circle at 9.0% 58.3%, rgba(228,183,255,.85) 0, rgba(228,183,255,.85) 1.0px, rgba(228,183,255,.16) 1.6px, transparent 5.1px),
+        radial-gradient(circle at 37.2% 45.3%, rgba(220,213,255,.85) 0, rgba(220,213,255,.85) 2.0px, rgba(220,213,255,.16) 2.6px, transparent 10.3px),
+        radial-gradient(circle at 57.5% 86.7%, rgba(199,179,255,.85) 0, rgba(199,179,255,.85) 0.9px, rgba(199,179,255,.16) 1.5px, transparent 4.7px),
+        radial-gradient(circle at 90.8% 81.8%, rgba(202,170,255,.85) 0, rgba(202,170,255,.85) 1.0px, rgba(202,170,255,.16) 1.6px, transparent 5.2px),
+        radial-gradient(circle at 73.9% 94.0%, rgba(214,216,255,.85) 0, rgba(214,216,255,.85) 0.9px, rgba(214,216,255,.16) 1.5px, transparent 4.8px),
+        radial-gradient(circle at 48.3% 7.8%, rgba(196,162,255,.85) 0, rgba(196,162,255,.85) 0.7px, rgba(196,162,255,.16) 1.3px, transparent 3.7px),
+        radial-gradient(circle at 51.2% 25.5%, rgba(215,176,255,.85) 0, rgba(215,176,255,.85) 1.7px, rgba(215,176,255,.16) 2.3px, transparent 8.7px),
+        radial-gradient(circle at 42.1% 90.5%, rgba(223,171,255,.85) 0, rgba(223,171,255,.85) 1.4px, rgba(223,171,255,.16) 2.0px, transparent 6.9px),
+        radial-gradient(circle at 92.9% 97.7%, rgba(220,195,255,.85) 0, rgba(220,195,255,.85) 0.8px, rgba(220,195,255,.16) 1.4px, transparent 4.3px),
+        radial-gradient(circle at 65.4% 61.6%, rgba(203,218,255,.85) 0, rgba(203,218,255,.85) 0.8px, rgba(203,218,255,.16) 1.4px, transparent 3.9px);
+    background-size: 100% 100vh; background-repeat: repeat-y;
+    animation: vanta-rise 90s linear infinite, vanta-twinkle 5s ease-in-out infinite alternate;
+}
+@keyframes vanta-rise { from { transform: translateY(0); } to { transform: translateY(-100vh); } }
+@keyframes vanta-twinkle { from { opacity: 0.7; } to { opacity: 1; } }
+@keyframes vanta-drift-a { from { transform: translate(0, 0) scale(1); } to { transform: translate(22vw, -14vh) scale(1.15); } }
+@keyframes vanta-drift-b { from { transform: translate(0, 0) scale(1.1); } to { transform: translate(-24vw, -10vh) scale(0.92); } }
+@keyframes vanta-drift-c { from { transform: translate(-12vw, 0) scale(1); } to { transform: translate(14vw, 16vh) scale(1.18); } }
+@media (prefers-reduced-motion: reduce) { body::before, body::after, html::before, html::after, [class*="popout__"], [class*="menu__"], [class*="channelTextArea__"] { animation: none !important; } }
+
+/* extra polish (matches Discord's class names by their stable first part, so it survives Discord's hash changes) */
+[class*="button__"][class*="lookFilled__"][class*="colorBrand__"] { background-image: linear-gradient(135deg, #6d4cf0, #9b6bff) !important; box-shadow: 0 2px 14px rgba(123, 85, 242, 0.35); }
+[class*="button__"][class*="lookFilled__"][class*="colorBrand__"]:hover { filter: brightness(1.12); }
+
+[class*="channelTextArea__"] { border: 1px solid var(--input-border-default); border-radius: 10px; transition: border-color 0.15s, box-shadow 0.15s; }
+[class*="channelTextArea__"]:focus-within { border-color: rgba(180, 139, 255, 0.7); box-shadow: 0 0 0 1px rgba(180, 139, 255, 0.25), 0 0 24px rgba(123, 85, 242, 0.28); }
+
+[class*="mention__"] { background: rgba(123, 85, 242, 0.28) !important; color: #efe6ff !important; border-radius: 4px; }
+[class*="mention__"]:hover { background: #7b55f2 !important; color: #ffffff !important; }
+
+[class*="popout__"], [class*="tooltip__"], [class*="layer__"] > [class*="menu__"] {
+    border: 1px solid rgba(180, 139, 255, 0.25) !important; box-shadow: 0 8px 32px rgba(40, 18, 110, 0.55) !important;
+}
+
+::-webkit-scrollbar-thumb { background: linear-gradient(180deg, #5a3fc0, #3a2d66) !important; border-radius: 8px !important; border: 2px solid transparent !important; background-clip: padding-box !important; }
+::-webkit-scrollbar-thumb:hover { background: linear-gradient(180deg, #7b55f2, #5a3fc0) !important; background-clip: padding-box !important; }
+::-webkit-scrollbar-track { background: transparent !important; border: 0 !important; }
+
+/* smoother, livelier controls (hover effects only, so nothing moves until you touch it) */
+[data-list-item-id^="guildsnav"] { transition: transform 0.18s ease, filter 0.18s ease; }
+[data-list-item-id^="guildsnav"]:hover { transform: translateY(-2px) scale(1.06); filter: drop-shadow(0 0 9px rgba(160, 110, 255, 0.75)); }
+[data-list-item-id^="channels___"], [data-list-item-id^="members___"], li[id^="chat-messages-"] { transition: background-color 0.18s ease; }
+[class*="button__"][class*="lookFilled__"][class*="colorBrand__"] { background-size: 200% 100% !important; transition: background-position 0.4s ease, box-shadow 0.2s ease, transform 0.15s ease; }
+[class*="button__"][class*="lookFilled__"][class*="colorBrand__"]:hover { background-position: 100% 0 !important; box-shadow: 0 4px 22px rgba(155, 107, 255, 0.55); transform: translateY(-1px); }
+[class*="button__"][class*="lookFilled__"][class*="colorBrand__"]:active { transform: translateY(0); }
+[class*="mention__"] { transition: background-color 0.15s ease, color 0.15s ease; }
+[class*="sidebar__"] { border-right: 1px solid rgba(180, 139, 255, 0.10); }
+[class*="popout__"], [class*="layer__"] > [class*="menu__"] { animation: vanta-pop 0.16s ease-out; }
+@keyframes vanta-pop { from { opacity: 0; transform: translateY(4px) scale(0.98); } to { opacity: 1; transform: none; } }
+[class*="channelTextArea__"]:focus-within { animation: vanta-pulse 2.8s ease-in-out infinite; }
+@keyframes vanta-pulse { 0%, 100% { box-shadow: 0 0 0 1px rgba(180, 139, 255, 0.25), 0 0 18px rgba(123, 85, 242, 0.25); } 50% { box-shadow: 0 0 0 1px rgba(180, 139, 255, 0.45), 0 0 32px rgba(155, 107, 255, 0.45); } }
+
+/* a sleeker font for servers, channels, members and headings (Bahnschrift comes with Windows 10/11, so nothing is downloaded;
+   on a computer without it Discord's normal font is used) */
+[data-list-item-id^="channels___"], [data-list-item-id^="members___"], [data-list-item-id^="guildsnav"],
+[class*="sidebar__"] h2, [class*="sidebar__"] h3, [class*="categoryHeader"], [class*="headerContent__"], [class*="tooltip__"],
+h1, h2, h3 {
+    font-family: "Bahnschrift", "Segoe UI Variable Display", "gg sans", "Segoe UI", sans-serif !important;
+    letter-spacing: 0.005em;
+}
+[class*="sidebar__"] h2, [class*="sidebar__"] h3, [class*="categoryHeader"] { text-transform: uppercase; letter-spacing: 0.09em; color: #c79bff; }
+
+/* more colour: pink unread badges, glowing unread/selected markers, blue-violet channel icons */
+[class*="numberBadge__"] { background: linear-gradient(135deg, #e24bd0, #9b4bff) !important; color: #fff !important; box-shadow: 0 0 10px rgba(226, 75, 208, 0.55); }
+[class*="pill__"] > span, [class*="pill__"] [class*="item__"] { background: linear-gradient(180deg, #c79bff, #7b55f2) !important; box-shadow: 0 0 10px rgba(155, 107, 255, 0.8); }
+[data-list-item-id^="channels___"] [class*="selected__"], [data-list-item-id^="channels___"][class*="selected__"] { background-image: linear-gradient(90deg, rgba(123, 85, 242, 0.38), rgba(226, 75, 208, 0.10)) !important; }
+
+::selection { background: rgba(123, 85, 242, 0.55); color: #ffffff; }
